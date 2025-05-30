@@ -9,6 +9,7 @@ import (
 	"sync"
 	"time"
 
+	"ssml-parser/examples/wav"
 	"ssml-parser/ssml"
 )
 
@@ -322,7 +323,7 @@ func AssembleAudioWithBreaks(ttsResults []SentenceTTSResult, insertPoints []TagI
 
 // SaveSentenceAudio 保存音频文件
 func SaveSentenceAudio(audio *ssml.AudioData, filename string) error {
-	writer, err := NewWAVWriter(filename, audio.SampleRate, audio.Channels)
+	writer, err := wav.NewWAVWriter(filename, audio.SampleRate, audio.Channels)
 	if err != nil {
 		return err
 	}

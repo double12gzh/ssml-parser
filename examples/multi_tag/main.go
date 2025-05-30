@@ -9,6 +9,7 @@ import (
 	"sync"
 	"time"
 
+	"ssml-parser/examples/wav"
 	"ssml-parser/ssml"
 )
 
@@ -657,7 +658,7 @@ func AssembleMultiTagAudio(ttsResults []MultiTagTTSResult, insertPoints []Comple
 
 // SaveMultiTagAudio 保存多标签音频
 func SaveMultiTagAudio(audio *ssml.AudioData, filename string) error {
-	writer, err := NewWAVWriter(filename, audio.SampleRate, audio.Channels)
+	writer, err := wav.NewWAVWriter(filename, audio.SampleRate, audio.Channels)
 	if err != nil {
 		return err
 	}

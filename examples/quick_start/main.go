@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"ssml-parser/examples/wav"
 	"ssml-parser/ssml"
 )
 
@@ -63,7 +64,7 @@ func ProcessSSMLToAudio(ssmlContent string) (*ssml.AudioData, *ssml.AudioProcess
 // SaveAudioToFile 保存音频到文件
 func SaveAudioToFile(audio *ssml.AudioData, filename string) error {
 	// 创建 WAV 写入器
-	writer, err := NewWAVWriter(filename, audio.SampleRate, audio.Channels)
+	writer, err := wav.NewWAVWriter(filename, audio.SampleRate, audio.Channels)
 	if err != nil {
 		return err
 	}

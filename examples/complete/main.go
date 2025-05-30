@@ -7,6 +7,7 @@ import (
 	"os"
 	"time"
 
+	"ssml-parser/examples/wav"
 	"ssml-parser/ssml"
 )
 
@@ -153,7 +154,7 @@ func main() {
 
 	// 步骤 7: 验证 WAV 文件
 	fmt.Println("\n步骤 6: 验证音频文件...")
-	err = ValidateWAVFile(filename)
+	err = wav.ValidateWAVFile(filename)
 	if err != nil {
 		log.Printf("WAV 文件验证失败: %v", err)
 	}
@@ -273,7 +274,7 @@ func SaveToWAV(audio *ssml.AudioData, filename string) error {
 	fmt.Printf("正在保存 WAV 文件: %s...\n", filename)
 
 	// 创建 WAV 写入器
-	writer, err := NewWAVWriter(filename, audio.SampleRate, audio.Channels)
+	writer, err := wav.NewWAVWriter(filename, audio.SampleRate, audio.Channels)
 	if err != nil {
 		return fmt.Errorf("创建 WAV 写入器失败: %w", err)
 	}

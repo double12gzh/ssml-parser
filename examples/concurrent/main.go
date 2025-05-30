@@ -7,6 +7,7 @@ import (
 	"sync"
 	"time"
 
+	"ssml-parser/examples/wav"
 	"ssml-parser/ssml"
 )
 
@@ -219,7 +220,7 @@ func AssembleWithBreaks(audioSegments []SegmentWithAudio, instructions []ssml.Au
 
 // SaveSimpleAudio 保存音频文件
 func SaveSimpleAudio(audio *ssml.AudioData, filename string) error {
-	writer, err := NewWAVWriter(filename, audio.SampleRate, audio.Channels)
+	writer, err := wav.NewWAVWriter(filename, audio.SampleRate, audio.Channels)
 	if err != nil {
 		return err
 	}
